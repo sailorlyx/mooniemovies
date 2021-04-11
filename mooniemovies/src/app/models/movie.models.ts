@@ -1,7 +1,7 @@
 export class MovieModel {
 
     public titulo: string;
-    public release: number;
+    public release: string;
     public titulOriginal: string;
     public overview: string;
     public genero: string;
