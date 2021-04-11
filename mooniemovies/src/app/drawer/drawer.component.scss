@@ -3,15 +3,27 @@
 
 }
 
-mat-toolbar {
-    width: 350px;
-  }
+.draw {
+    width:350px;
+}
 
-mat-nav-list mat-icon {
-    margin:15px;
+.mat-card {
+    height:auto;
+}
+
+mat-card mat-icon {
+    width: 200px;
 }
 
 .logo {
     height:100%;
     margin: 0 auto; 
+}
+
+.expansion {
+    width:100%;
+}
+
+h3 {
+    text-align: center;
 }

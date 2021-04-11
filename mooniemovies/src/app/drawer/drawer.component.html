@@ -1,5 +1,5 @@
 <mat-drawer-container class="contenedor">
-    <mat-drawer mode="side" opened>
+    <mat-drawer class="draw" mode="side" opened>
         <mat-toolbar color="primary">
             <button mat-icon-button class="lista">
                 <mat-icon>list</mat-icon>
@@ -7,23 +7,130 @@
             <span>CATMOONIES</span>
             <img class="logo" src="assets/images/prueba4.png" alt="logo" />
         </mat-toolbar>
-        <mat-nav-list>
-            <h3 matSubheader>PELÍCULAS</h3>
-            <a mat-list-item href="...">BUSCAR POR TÍTULO <mat-icon>search</mat-icon> </a>
-            <a mat-list-item href="...">BUSCAR POR TÍTULO ORIGINAL <mat-icon>search</mat-icon> </a>
-            <a mat-list-item href="...">BUSCAR POR OVERVIEW<mat-icon>search</mat-icon> </a>
-            <a mat-list-item href="...">BUSCAR POR GÉNERO <mat-icon>search</mat-icon> </a>
-            <a mat-list-item href="...">LAS 10 MÁS POPULARES <mat-icon>favorite_border</mat-icon> </a>
 
-            <h3 matSubheader>SERIES</h3>
-            <a mat-list-item href="...">BUSCAR POR TÍTULO <mat-icon>search</mat-icon> </a>
-            <a mat-list-item href="...">BUSCAR POR TÍTULO ORIGINAL <mat-icon>search</mat-icon> </a>
-            <a mat-list-item href="...">BUSCAR POR OVERVIEW<mat-icon>search</mat-icon> </a>
-            <a mat-list-item href="...">BUSCAR POR GÉNERO <mat-icon>search</mat-icon> </a>
-            <a mat-list-item href="...">LAS 10 MÁS POPULARES <mat-icon>favorite_border</mat-icon> </a>
+        <h3 matSubheader>PELÍCULAS</h3>
 
+        <mat-expansion-panel class="expansion">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    BUSCAR POR TÍTULO
+                </mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon>search</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
 
-        </mat-nav-list>
+            <mat-form-field>
+                <mat-label>Título de la película</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Título de película original</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    BUSCAR POR OVERVIEW
+                </mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon>search</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field>
+                <mat-label>Texto a buscar</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    BUSCAR POR GÉNERO
+                </mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon>search</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field>
+                <mat-label>Género</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </mat-expansion-panel>
+
+        <mat-card>
+            <mat-nav-list>
+                <a mat-list-item>LAS 10 MÁS POPULARES <mat-icon>favorite_border</mat-icon> </a>
+            </mat-nav-list>
+        </mat-card>
+
+        <h3 matSubheader>SERIES</h3>
+
+        <mat-expansion-panel class="expansion">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    BUSCAR POR TÍTULO
+                </mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon>search</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field>
+                <mat-label>Título de la serie</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Título de serie original</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    BUSCAR POR OVERVIEW
+                </mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon>search</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field>
+                <mat-label>Texto a buscar</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    BUSCAR POR GÉNERO
+                </mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon>search</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field>
+                <mat-label>Género</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </mat-expansion-panel>
+
+        <mat-card>
+            <mat-nav-list>
+                <a mat-list-item>LAS 10 MÁS POPULARES <mat-icon>favorite_border</mat-icon> </a>
+            </mat-nav-list>
+        </mat-card>
+
     </mat-drawer>
-    <mat-drawer-content>Main content</mat-drawer-content>
+    <mat-drawer-content>NOVEDADES EN PELÍCULAS Y SERIES</mat-drawer-content>
+
 </mat-drawer-container>
