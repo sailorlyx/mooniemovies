@@ -14,6 +14,7 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { MatCardModule } from '@angular/material/card';
 import { MoviecardComponent } from './moviecard/moviecard.component';
 import { ListapelisComponent } from './listapelis/listapelis.component';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ListapelisComponent } from './listapelis/listapelis.component';
   ],
   imports: [
     BrowserModule,
+    HttpClient,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -33,8 +35,7 @@ import { ListapelisComponent } from './listapelis/listapelis.component';
     MatIconModule,
     MatListModule,
     MatExpansionModule,
-    MatCardModule,
-
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
