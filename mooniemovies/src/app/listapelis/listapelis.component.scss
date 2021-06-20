@@ -1,3 +1,30 @@
 app-moviecard {
-    padding: 0 20px 20px;
+  margin: 0 10px 20px;
+}
+
+.toolbar-title {
+  text-align: center;
+}
+
+.lista-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.lidi-paginator {
+  position: fixed;
+  bottom: 0;
+
+  a {
+    padding: 0;
+    margin: 10px 5px;
+    min-width: 48px;
+  }
+}
+
+.noMovies {
+  margin: 10px;
+  text-align: center;
 }

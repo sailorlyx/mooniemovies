@@ -1,0 +1,44 @@
+@import '../../styles.scss';
+
+
+.movie-detail-background {
+  position:absolute;
+  width: 100%;
+  height: calc(100% - 64px);
+  background-color: #bbb;
+  top: 64px;
+  z-index: -1;
+}
+
+.movie-image-row {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  color:black;
+
+  .movie-image {
+    flex: 1 1 30%;
+    min-width: 200px;
+    max-width: 300px;
+    margin-right: 10px;
+    img.movieimage {
+      margin-bottom: -22px;
+      border-radius: 4px;
+    }
+  }
+
+  .movie-title {
+    color: mat-color($theme-primary);
+    margin-top: 10px;
+  }
+
+  .movie-right-column {
+    flex: 1 1 60%;
+    font-size: 1.1em;
+  }
+
+  .movie-genre {
+    margin-left: 0;
+  }
+}
+

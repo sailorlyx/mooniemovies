@@ -14,18 +14,21 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { MatCardModule } from '@angular/material/card';
 import { MoviecardComponent } from './moviecard/moviecard.component';
 import { ListapelisComponent } from './listapelis/listapelis.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSelectModule } from '@angular/material/select';
+import { MoviedetailComponent } from './moviedetail/moviedetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DrawerComponent,
     MoviecardComponent,
-    ListapelisComponent
+    ListapelisComponent,
+    MoviedetailComponent
   ],
   imports: [
     BrowserModule,
-    HttpClient,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -35,7 +38,8 @@ import { HttpClient } from '@angular/common/http';
     MatIconModule,
     MatListModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

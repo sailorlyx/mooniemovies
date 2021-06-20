@@ -1,1 +1,30 @@
-<app-moviecard *ngFor="let movie of movies" [movie]="movie"></app-moviecard>
+<div class="lista-wrapper" *ngIf="movies; else noMovies">
+  <app-moviecard *ngFor="let movie of movies.results" [movie]="movie" (click)="movieClick(movie)"></app-moviecard>
+  <div class="lidi-paginator">
+    <a mat-raised-button [disabled]="movies.page === 1" [routerLink]="['']" [queryParams]="{page: 1}"
+      [queryParamsHandling]="'merge'">
+      <mat-icon>first_page</mat-icon>
+    </a>
+    <a mat-raised-button [disabled]="movies.page === 1" [routerLink]="['']" [queryParams]="{page: movies.page - 1}"
+      [queryParamsHandling]="'merge'">
+      <mat-icon>navigate_before</mat-icon>
+    </a>
+    <ng-container *ngFor="let i of pageRange()">
+      <a [color]="i === movies.page ? 'primary' : ''" mat-raised-button [routerLink]="['']" [queryParams]="{page: i}"
+        [queryParamsHandling]="'merge'">{{ i }}</a>
+    </ng-container>
+    <a mat-raised-button [disabled]="movies.page === movies.totalPages" [routerLink]="['']"
+      [queryParams]="{page: movies.page + 1}" [queryParamsHandling]="'merge'">
+      <mat-icon>navigate_next</mat-icon>
+    </a>
+    <a mat-raised-button [disabled]="movies.page === movies.totalPages" [routerLink]="['']"
+      [queryParams]="{page: movies.totalPages}" [queryParamsHandling]="'merge'">
+      <mat-icon>last_page</mat-icon>
+    </a>
+  </div>
+</div>
+<ng-template #noMovies>
+  <mat-card class="noMovies">
+    No tengo pelis que mostrarte... ¿Por qué no pruebas a buscar alguna?
+  </mat-card>
+</ng-template>

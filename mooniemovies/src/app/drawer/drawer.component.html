@@ -1,139 +1,149 @@
 <mat-drawer-container class="contenedor">
-    <mat-drawer class="draw" mode="side" opened>
-        <mat-toolbar color="primary">
-            <button mat-icon-button class="lista">
-                <mat-icon>list</mat-icon>
-            </button>
-            <span>CATMOONIES</span>
-            <img class="logo" src="assets/images/prueba4.png" alt="logo" />
-        </mat-toolbar>
+  <mat-drawer class="draw" mode="side" opened>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="lista">
+        <mat-icon>list</mat-icon>
+      </button>
+      <span>CATMOONIES</span>
+      <img class="logo" src="assets/images/prueba4.png" alt="logo" />
+    </mat-toolbar>
 
-        <h3 matSubheader>PELÍCULAS</h3>
+    <h3 matSubheader>PELÍCULAS</h3>
 
-        <mat-expansion-panel class="expansion">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    BUSCAR POR TÍTULO
-                </mat-panel-title>
-                <mat-panel-description>
-                    <mat-icon>search</mat-icon>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+    <mat-expansion-panel class="expansion">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          BUSCAR POR TÍTULO
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>search</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-            <mat-form-field>
-                <mat-label>Título de la película</mat-label>
-                <input matInput>
-            </mat-form-field>
+      <mat-form-field>
+        <mat-label>Título de la película</mat-label>
+        <input #titleInput matInput (input)="buscar({title: titleInput.value})">
+      </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>Título de película original</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-expansion-panel>
+      <mat-form-field>
+        <mat-label>Título de película original</mat-label>
+        <input #originalTitleInput matInput (input)="buscar({title: originalTitleInput.value, language: 'en-US'})">
+      </mat-form-field>
+    </mat-expansion-panel>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    BUSCAR POR OVERVIEW
-                </mat-panel-title>
-                <mat-panel-description>
-                    <mat-icon>search</mat-icon>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          BUSCAR POR OVERVIEW
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>search</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-            <mat-form-field>
-                <mat-label>Texto a buscar</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-expansion-panel>
+      <mat-form-field>
+        <mat-label>Texto a buscar</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-expansion-panel>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    BUSCAR POR GÉNERO
-                </mat-panel-title>
-                <mat-panel-description>
-                    <mat-icon>search</mat-icon>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          BUSCAR POR GÉNERO
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>search</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-            <mat-form-field>
-                <mat-label>Género</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-expansion-panel>
+      <mat-form-field>
+        <mat-label>Género</mat-label>
+        <mat-select #movieGenre (selectionChange)="buscar({with_genres: movieGenre.value})">
+          <mat-option *ngFor="let genero of generosMovie | async" [value]="genero.id">
+            {{genero.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-expansion-panel>
 
-        <mat-card>
-            <mat-nav-list>
-                <a mat-list-item>LAS 10 MÁS POPULARES <mat-icon>favorite_border</mat-icon> </a>
-            </mat-nav-list>
-        </mat-card>
+    <mat-card>
+      <mat-nav-list>
+        <a mat-list-item (click)="buscar({sort_by: 'popularity.desc'})">LAS MÁS POPULARES <mat-icon>favorite_border
+          </mat-icon> </a>
+      </mat-nav-list>
+    </mat-card>
 
-        <h3 matSubheader>SERIES</h3>
+    <h3 matSubheader>SERIES</h3>
 
-        <mat-expansion-panel class="expansion">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    BUSCAR POR TÍTULO
-                </mat-panel-title>
-                <mat-panel-description>
-                    <mat-icon>search</mat-icon>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+    <mat-expansion-panel class="expansion">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          BUSCAR POR TÍTULO
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>search</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-            <mat-form-field>
-                <mat-label>Título de la serie</mat-label>
-                <input matInput>
-            </mat-form-field>
+      <mat-form-field>
+        <mat-label>Título de la serie</mat-label>
+        <input #tvTitle matInput (input)="buscar({title: tvTitle.value, language: 'es-ES', which: 'tv'})">
+      </mat-form-field>
 
-            <mat-form-field>
-                <mat-label>Título de serie original</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-expansion-panel>
+      <mat-form-field>
+        <mat-label>Título de serie original</mat-label>
+        <input #originalTvTitle matInput (input)="buscar({title: tvTitle.value, language: 'en-US', which: 'tv'})">
+      </mat-form-field>
+    </mat-expansion-panel>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    BUSCAR POR OVERVIEW
-                </mat-panel-title>
-                <mat-panel-description>
-                    <mat-icon>search</mat-icon>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          BUSCAR POR OVERVIEW
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>search</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-            <mat-form-field>
-                <mat-label>Texto a buscar</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-expansion-panel>
+      <mat-form-field>
+        <mat-label>Texto a buscar</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </mat-expansion-panel>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    BUSCAR POR GÉNERO
-                </mat-panel-title>
-                <mat-panel-description>
-                    <mat-icon>search</mat-icon>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          BUSCAR POR GÉNERO
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>search</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-            <mat-form-field>
-                <mat-label>Género</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </mat-expansion-panel>
+      <mat-form-field>
+        <mat-label>Género</mat-label>
+        <mat-select #tvGenre
+          (selectionChange)="buscar({with_genres: movieGenre.value, language: 'es-ES', which: 'tv'})">
+          <mat-option *ngFor="let genero of generosTv | async" [value]="genero.id">
+            {{genero.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-expansion-panel>
 
-        <mat-card>
-            <mat-nav-list>
-                <a mat-list-item>LAS 10 MÁS POPULARES <mat-icon>favorite_border</mat-icon> </a>
-            </mat-nav-list>
-        </mat-card>
+    <mat-card>
+      <mat-nav-list>
+        <a mat-list-item (click)="buscar({sort_by: 'popularity.desc', which: 'tv'})">LAS MÁS POPULARES <mat-icon>
+            favorite_border</mat-icon></a>
+      </mat-nav-list>
+    </mat-card>
 
-    </mat-drawer>
-    <mat-drawer-content>
-        <ng-content></ng-content>
-
-    </mat-drawer-content>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
 
 </mat-drawer-container>

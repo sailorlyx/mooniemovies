@@ -1,0 +1,28 @@
+<div class="movie-detail-background"></div>
+<div *ngIf="this.movie" class="movie-wrapper">
+  <div class="movie-image-row">
+    <mat-card class="movie-image">
+      <img class="movieimage" mat-card-image
+        [src]="'https://www.themoviedb.org/t/p/w600_and_h900_bestv2' + movie.poster">
+    </mat-card>
+    <div class="movie-right-column">
+      <h2 class="movie-title"> {{ movie.titulo }} ({{movie.release.split('-')[0]}})</h2>
+      <div class="movie-overview">
+        <p>{{ movie.overview }}</p>
+      </div>
+      <div class="movie-genres">
+        <h3>Géneros</h3>
+        <a class="movie-genre" *ngFor="let genero of movie.generos" mat-raised-button color="primary"
+          [routerLink]="['']" [queryParams]="{ with_genres: genero.id }">{{ genero.name
+          }}</a>
+      </div>
+      <div class="movie-valoracion">
+        <h3>Valoración</h3>
+        <p>{{ movie.valoracion }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="movie-details-row">
+
+  </div>
+</div>
